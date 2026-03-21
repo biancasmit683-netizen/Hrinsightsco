@@ -985,6 +985,7 @@ h3 {
         padding: 0 32px;
     }
 
+    .hero h1 br,
     .problem h2 br,
     .solution h2 br {
         display: none;
