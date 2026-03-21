@@ -31,6 +31,8 @@
         </div>
     </nav>
 
+    <div class="nav-overlay"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
@@ -307,20 +309,38 @@
     </footer>
 
     <script>
-        // Mobile nav toggle
+        // Mobile nav toggle with overlay
         const toggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+
+        function closeNav() {
+            navLinks.classList.remove('active');
+            toggle.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openNav() {
+            navLinks.classList.add('active');
+            toggle.classList.add('active');
+            navOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
         toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                closeNav();
+            } else {
+                openNav();
+            }
         });
+
+        navOverlay.addEventListener('click', closeNav);
 
         // Close mobile nav on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                toggle.classList.remove('active');
-            });
+            link.addEventListener('click', closeNav);
         });
 
         // Navbar background on scroll
