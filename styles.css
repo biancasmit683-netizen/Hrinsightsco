@@ -301,6 +301,14 @@ h3 {
     color: var(--color-primary);
 }
 
+.nav-links a.btn-nav {
+    color: #fff;
+}
+
+.nav-links a.btn-nav:hover {
+    color: #fff;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
