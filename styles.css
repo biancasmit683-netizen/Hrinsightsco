@@ -13,24 +13,24 @@
 }
 
 :root {
-    /* Primary palette */
-    --color-primary: #1a2b4a;
-    --color-primary-light: #263d63;
+    /* Primary palette — teal */
+    --color-primary: #1a6b5a;
+    --color-primary-light: #1f7d6a;
 
-    /* Accent — muted teal, used sparingly */
-    --accent: #2a7d6e;
-    --accent-light: #e8f4f1;
-    --accent-hover: #237063;
+    /* Accent — deep teal for buttons & highlights */
+    --accent: #18856e;
+    --accent-light: #e6f5f1;
+    --accent-hover: #14705c;
 
-    /* Neutrals */
-    --color-text: #23272f;
-    --color-text-secondary: #4a5468;
-    --color-text-muted: #7c8496;
+    /* Neutrals — teal-tinted */
+    --color-text: #1e2a27;
+    --color-text-secondary: #3d5550;
+    --color-text-muted: #6b8680;
     --color-bg: #ffffff;
-    --color-bg-subtle: #f8f9fb;
-    --color-bg-warm: #f5f3f0;
-    --color-border: #e2e5eb;
-    --color-border-light: #eef0f3;
+    --color-bg-subtle: #f5faf8;
+    --color-bg-warm: #eef6f3;
+    --color-border: #d6e5e1;
+    --color-border-light: #e8f0ed;
 
     /* Fonts */
     --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
@@ -167,7 +167,7 @@ h3 {
 .btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(42, 125, 110, 0.25);
+    box-shadow: 0 4px 16px rgba(24, 133, 110, 0.3);
 }
 
 .btn-text {
@@ -227,7 +227,7 @@ h3 {
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 var(--color-border);
     padding: 14px 0;
