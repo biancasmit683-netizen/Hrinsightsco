@@ -1266,6 +1266,10 @@ h3 {
         padding-top: 16px;
     }
 
+    .hero-tagline-author {
+        font-size: 11px;
+    }
+
     /* -- Trust strip -- */
     .trust-strip {
         padding: 36px 0;
@@ -1557,7 +1561,8 @@ h3 {
 
     .problem h2,
     .solution h2,
-    .services h2 {
+    .services h2,
+    .team h2 {
         font-size: 22px;
     }
 
@@ -1566,8 +1571,15 @@ h3 {
         font-size: 21px;
     }
 
-    .service-card {
+    .service-card,
+    .team-card {
         padding: 20px;
+    }
+
+    .team-avatar {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 16px;
     }
 
     .btn-hero,
