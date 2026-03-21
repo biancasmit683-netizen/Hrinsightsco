@@ -1,6 +1,6 @@
 /* ========================================
-   The HR Insights Co. — Stylesheet v2
-   Premium, editorial, high-trust design
+   The HR Insights Co. — Stylesheet v3
+   Consistency pass: standardized tokens
    ======================================== */
 
 /* --- Reset & Base --- */
@@ -13,10 +13,9 @@
 }
 
 :root {
-    /* Primary palette — deep navy family */
+    /* Primary palette */
     --color-primary: #1a2b4a;
     --color-primary-light: #263d63;
-    --color-primary-dark: #111d33;
 
     /* Accent — muted teal, used sparingly */
     --accent: #2a7d6e;
@@ -43,7 +42,6 @@
     --radius-lg: 10px;
 
     /* Shadows */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
@@ -78,11 +76,13 @@ h1, h2 {
     color: var(--color-primary);
 }
 
-h3, h4, h5, h6 {
+h3 {
     font-family: var(--font-body);
     font-weight: 600;
+    font-size: 17px;
     color: var(--color-primary);
     line-height: 1.3;
+    margin-bottom: 8px;
 }
 
 /* --- Fade-in animation --- */
@@ -106,7 +106,7 @@ h3, h4, h5, h6 {
 
 /* --- Eyebrow labels --- */
 .eyebrow {
-    display: inline-block;
+    display: block;
     font-family: var(--font-body);
     font-size: 12px;
     font-weight: 600;
@@ -114,10 +114,33 @@ h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .eyebrow-light {
     color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Shared section intro --- */
+.section-intro {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* --- Shared body paragraph --- */
+.body-text,
+.problem-body p,
+.solution-step p,
+.service-card p,
+.about-inner p,
+.contact-content p {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
 }
 
 /* --- Buttons --- */
@@ -149,11 +172,11 @@ h3, h4, h5, h6 {
 
 .btn-text {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--color-text-secondary);
     transition: color var(--transition);
-    padding: 16px 0;
+    padding: 14px 0;
 }
 
 .btn-text:hover {
@@ -176,18 +199,18 @@ h3, h4, h5, h6 {
     background: var(--color-primary-light);
 }
 
-.btn-cta-light {
+.btn-cta {
     background: #fff;
     color: var(--color-primary);
 }
 
-.btn-cta-light:hover {
+.btn-cta:hover {
     background: var(--color-bg-subtle);
     transform: translateY(-1px);
     box-shadow: var(--shadow-lg);
 }
 
-.btn-cta-light svg {
+.btn-cta svg {
     stroke: var(--color-primary);
 }
 
@@ -299,7 +322,7 @@ h3, h4, h5, h6 {
 }
 
 .hero .eyebrow {
-    margin-bottom: 20px;
+    text-align: left;
 }
 
 .hero h1 {
@@ -326,10 +349,8 @@ h3, h4, h5, h6 {
 }
 
 .btn-hero {
-    font-size: 15px;
     padding: 15px 34px;
     letter-spacing: 0.15px;
-    border-radius: var(--radius);
 }
 
 /* Hero aside — tagline + proof stats */
@@ -373,37 +394,32 @@ h3, h4, h5, h6 {
 }
 
 /* ============================================
-   PROBLEM SECTION — list layout (not cards)
+   PROBLEM SECTION — numbered list
    ============================================ */
 .problem {
-    padding: 80px 0 96px;
+    padding: 104px 0;
     background: var(--color-bg);
 }
 
 .problem h2 {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 1.2;
     text-align: center;
     margin-bottom: 12px;
 }
 
-.problem .section-intro {
-    margin-bottom: 56px;
-}
-
 .problem-list {
-    max-width: 720px;
+    max-width: 660px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .problem-item {
     display: flex;
     gap: 28px;
     align-items: flex-start;
-    padding: 32px 0;
+    padding: 28px 0;
     border-bottom: 1px solid var(--color-border-light);
 }
 
@@ -426,44 +442,26 @@ h3, h4, h5, h6 {
     padding-top: 2px;
 }
 
-.problem-body h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--color-primary);
-}
-
-.problem-body p {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-}
-
 /* ============================================
    SOLUTION SECTION — vertical timeline
    ============================================ */
 .solution {
-    padding: 112px 0;
+    padding: 104px 0;
     background: var(--color-bg-subtle);
 }
 
 .solution h2 {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 1.2;
     text-align: center;
     margin-bottom: 12px;
 }
 
-.solution .section-intro {
-    margin-bottom: 64px;
-}
-
 .solution-grid {
-    max-width: 640px;
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .solution-step {
@@ -516,49 +514,25 @@ h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     color: var(--accent);
-    margin-bottom: 14px;
-}
-
-.solution-step h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--color-primary);
+    margin-bottom: 12px;
 }
 
 .solution-step p {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    max-width: 460px;
-}
-
-/* --- Shared section intro --- */
-.section-intro {
-    font-size: 16px;
-    color: var(--color-text-secondary);
-    max-width: 540px;
-    margin: 0 auto 48px;
-    text-align: center;
-    line-height: 1.7;
+    max-width: 440px;
 }
 
 /* ============================================
    SERVICES SECTION
    ============================================ */
 .services {
-    padding: 112px 0 120px;
+    padding: 104px 0;
     background: var(--color-bg);
 }
 
 .services h2 {
-    font-size: 36px;
+    font-size: 34px;
     text-align: center;
     margin-bottom: 12px;
-}
-
-.services .section-intro {
-    margin-bottom: 56px;
 }
 
 .services-grid {
@@ -569,7 +543,7 @@ h3, h4, h5, h6 {
 
 .service-card {
     position: relative;
-    padding: 40px 36px 36px;
+    padding: 36px;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -597,28 +571,18 @@ h3, h4, h5, h6 {
 }
 
 .service-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--accent-light);
     border-radius: var(--radius);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     color: var(--accent);
 }
 
-.service-card h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--color-primary);
-}
-
 .service-card p {
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
     margin-bottom: 20px;
 }
 
@@ -646,13 +610,13 @@ h3, h4, h5, h6 {
 }
 
 .about-inner {
-    max-width: 640px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
 }
 
 .about-inner h2 {
-    font-size: 32px;
+    font-size: 30px;
     line-height: 1.25;
     margin-bottom: 0;
 }
@@ -661,23 +625,20 @@ h3, h4, h5, h6 {
     width: 40px;
     height: 2px;
     background: var(--accent);
-    margin: 28px auto;
+    margin: 24px auto;
     border-radius: 1px;
 }
 
 .about-inner p {
-    font-size: 15.5px;
-    color: var(--color-text-secondary);
-    line-height: 1.8;
     margin-bottom: 14px;
 }
 
 .about-credential {
-    margin-top: 24px;
-    font-size: 13px !important;
+    margin-top: 20px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.3px;
-    color: var(--color-text-muted) !important;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
     text-transform: uppercase;
 }
 
@@ -691,21 +652,19 @@ h3, h4, h5, h6 {
 
 .contact-content {
     text-align: center;
-    max-width: 520px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .contact-content h2 {
-    font-size: 32px;
+    font-size: 30px;
     color: #fff;
     margin-bottom: 14px;
     line-height: 1.25;
 }
 
 .contact-content p {
-    font-size: 15.5px;
     color: rgba(255, 255, 255, 0.6);
-    line-height: 1.7;
     margin-bottom: 36px;
 }
 
@@ -840,7 +799,7 @@ h3, h4, h5, h6 {
     }
 
     .hero-subtext {
-        font-size: 15.5px;
+        font-size: 15px;
     }
 
     .hero-ctas {
@@ -854,22 +813,25 @@ h3, h4, h5, h6 {
     }
 
     .problem,
-    .about,
-    .contact {
-        padding: 64px 0;
-    }
-
     .solution,
     .services {
         padding: 72px 0;
     }
 
+    .about,
+    .contact {
+        padding: 64px 0;
+    }
+
     .problem h2,
     .solution h2,
-    .services h2,
+    .services h2 {
+        font-size: 26px;
+    }
+
     .about-inner h2,
     .contact-content h2 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .problem h2 br,
@@ -891,7 +853,7 @@ h3, h4, h5, h6 {
     }
 
     .service-card {
-        padding: 32px 28px 28px;
+        padding: 28px;
     }
 
     .footer-container {
