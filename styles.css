@@ -13,24 +13,24 @@
 }
 
 :root {
-    /* Primary palette — teal */
-    --color-primary: #1a6b5a;
-    --color-primary-light: #1f7d6a;
+    /* Primary palette — red */
+    --color-primary: #8b1a1a;
+    --color-primary-light: #a52222;
 
-    /* Accent — deep teal for buttons & highlights */
-    --accent: #18856e;
-    --accent-light: #e6f5f1;
-    --accent-hover: #14705c;
+    /* Accent — deep red for buttons & highlights */
+    --accent: #c0392b;
+    --accent-light: #fdecea;
+    --accent-hover: #a93226;
 
-    /* Neutrals — teal-tinted */
-    --color-text: #1e2a27;
-    --color-text-secondary: #3d5550;
-    --color-text-muted: #6b8680;
+    /* Neutrals — red-tinted */
+    --color-text: #2a1e1e;
+    --color-text-secondary: #553d3d;
+    --color-text-muted: #866b6b;
     --color-bg: #ffffff;
-    --color-bg-subtle: #f5faf8;
-    --color-bg-warm: #eef6f3;
-    --color-border: #d6e5e1;
-    --color-border-light: #e8f0ed;
+    --color-bg-subtle: #faf5f5;
+    --color-bg-warm: #f6eeee;
+    --color-border: #e5d6d6;
+    --color-border-light: #f0e8e8;
 
     /* Fonts */
     --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
@@ -167,7 +167,7 @@ h3 {
 .btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(24, 133, 110, 0.3);
+    box-shadow: 0 4px 16px rgba(192, 57, 43, 0.3);
 }
 
 .btn-text {
