@@ -46,6 +46,20 @@
                 </div>
             </div>
             <aside class="hero-aside">
+                <div class="hero-chart">
+                    <span class="hero-chart-label">Insight Maturity</span>
+                    <svg class="hero-sparkline" viewBox="0 0 280 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.15"/>
+                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 52 Q20 48, 40 44 T80 38 T120 30 T160 22 T200 16 T240 10 T280 4" stroke="var(--accent)" stroke-width="2" fill="none" class="sparkline-path"/>
+                        <path d="M0 52 Q20 48, 40 44 T80 38 T120 30 T160 22 T200 16 T240 10 T280 4 V64 H0 Z" fill="url(#chartGrad)" class="sparkline-area"/>
+                        <circle cx="280" cy="4" r="4" fill="var(--accent)" class="sparkline-dot"/>
+                    </svg>
+                </div>
                 <div class="hero-stat-row">
                     <div class="hero-stat">
                         <span class="hero-stat-num">73%</span>
@@ -59,6 +73,31 @@
                 </div>
                 <p class="hero-tagline">"You can't manage what you don't measure."</p>
             </aside>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip">
+        <div class="container">
+            <div class="trust-inner">
+                <span class="trust-label">Trusted by forward-thinking HR teams</span>
+                <div class="trust-items">
+                    <div class="trust-item">
+                        <span class="trust-metric">50+</span>
+                        <span class="trust-desc">HR data projects delivered</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <span class="trust-metric">12+</span>
+                        <span class="trust-desc">Industries served</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <span class="trust-metric">98%</span>
+                        <span class="trust-desc">Client satisfaction rate</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -314,10 +353,44 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.problem-item, .solution-step, .service-card').forEach(el => {
+        document.querySelectorAll('.problem-item, .service-card, .trust-strip').forEach(el => {
             el.classList.add('fade-up');
             observer.observe(el);
         });
+
+        // Staggered animation for solution timeline steps
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const steps = entry.target.querySelectorAll('.solution-step');
+                    steps.forEach((step, i) => {
+                        step.style.transitionDelay = `${i * 150}ms`;
+                        step.classList.add('visible');
+                    });
+                    staggerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        const solutionGrid = document.querySelector('.solution-grid');
+        if (solutionGrid) {
+            solutionGrid.querySelectorAll('.solution-step').forEach(el => {
+                el.classList.add('fade-up');
+            });
+            staggerObserver.observe(solutionGrid);
+        }
+
+        // Animate sparkline on hero load
+        const sparklinePath = document.querySelector('.sparkline-path');
+        if (sparklinePath) {
+            const length = sparklinePath.getTotalLength();
+            sparklinePath.style.strokeDasharray = length;
+            sparklinePath.style.strokeDashoffset = length;
+            setTimeout(() => {
+                sparklinePath.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                sparklinePath.style.strokeDashoffset = '0';
+            }, 400);
+        }
     </script>
 
 </body>
