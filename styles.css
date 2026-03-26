@@ -808,6 +808,80 @@ h3 {
 }
 
 /* ============================================
+   DASHBOARD SHOWCASE SECTION
+   ============================================ */
+.showcase {
+    padding: var(--section-pad) 0;
+    background: var(--color-bg-warm);
+}
+
+.showcase h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.showcase-frame {
+    margin-top: 48px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+    background: #F7F8FB;
+}
+
+.showcase-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--color-primary);
+    gap: 12px;
+}
+
+.showcase-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.showcase-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.showcase-dots span:first-child { background: #E34935; }
+.showcase-dots span:nth-child(2) { background: #F5BF4F; }
+.showcase-dots span:last-child { background: #22A06B; }
+
+.showcase-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.2px;
+}
+
+.showcase-frame iframe {
+    border-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .showcase-frame {
+        margin-top: 32px;
+    }
+
+    .showcase-frame iframe {
+        height: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-frame iframe {
+        height: 500px;
+    }
+}
+
+/* ============================================
    ABOUT SECTION — quiet authority
    ============================================ */
 .about {
