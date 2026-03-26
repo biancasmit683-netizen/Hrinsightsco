@@ -262,6 +262,31 @@
         </div>
     </section>
 
+    <!-- Dashboard Showcase Section -->
+    <section class="showcase" id="showcase">
+        <div class="container">
+            <span class="eyebrow">Our work</span>
+            <h2>See what decision-ready insight looks like</h2>
+            <p class="section-intro">This is an example of the kind of workforce analytics dashboard we build — turning raw HR data into clear, actionable intelligence for leadership teams.</p>
+            <div class="showcase-frame">
+                <div class="showcase-toolbar">
+                    <div class="showcase-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="showcase-title">HR Insights Dashboard</span>
+                </div>
+                <iframe
+                    src="/hr_insights_dashboard.html"
+                    width="100%"
+                    height="900"
+                    style="border: none; display: block;"
+                    title="HR Insights Dashboard"
+                    loading="lazy"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -461,7 +486,7 @@
             });
         }, { threshold: 0.15 });
 
-        document.querySelectorAll('.problem-item, .service-card, .team-card, .trust-strip').forEach(el => {
+        document.querySelectorAll('.problem-item, .service-card, .team-card, .trust-strip, .showcase-frame').forEach(el => {
             el.classList.add('fade-up');
             observer.observe(el);
         });
