@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: hrinsightsco
+    runtime: static
+    buildCommand: mkdir -p public && cp *.html *.css public/
+    staticPublishPath: public
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
