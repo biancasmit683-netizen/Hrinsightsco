@@ -11,16 +11,16 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #1B2A4A;
-            --primary-light: #263B66;
-            --accent: #C8873E;
-            --accent-light: #FBF4EA;
-            --text: #1A1F2E;
-            --text-secondary: #4A5168;
-            --text-muted: #7C8299;
-            --bg: #F7F8FB;
+            --primary: #111111;
+            --primary-light: #333333;
+            --accent: #2F6F73;
+            --accent-light: #EAF4F4;
+            --text: #111111;
+            --text-secondary: #6B6B6B;
+            --text-muted: #999999;
+            --bg: #F5F5F5;
             --bg-card: #ffffff;
-            --border: #E2E4EB;
+            --border: #E5E5E5;
             --green: #22A06B;
             --green-bg: #E3FCF2;
             --red: #E34935;
@@ -80,9 +80,9 @@
         }
 
         .filter-pill.active {
-            background: var(--primary);
+            background: var(--accent);
             color: #fff;
-            border-color: var(--primary);
+            border-color: var(--accent);
         }
 
         .kpi-grid {
@@ -94,7 +94,7 @@
 
         .kpi-card {
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 6px;
             padding: 20px;
             border: 1px solid var(--border);
         }
@@ -111,7 +111,7 @@
         .kpi-value {
             font-size: 28px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
             line-height: 1.1;
         }
 
@@ -145,7 +145,7 @@
 
         .chart-card {
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 6px;
             padding: 24px;
             border: 1px solid var(--border);
         }
@@ -238,7 +238,7 @@
         /* Table */
         .table-card {
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 6px;
             padding: 24px;
             border: 1px solid var(--border);
         }
@@ -445,14 +445,14 @@
             <h3>Workforce by Department</h3>
             <div class="donut-container">
                 <svg class="donut-svg" viewBox="0 0 160 160">
-                    <circle cx="80" cy="80" r="60" fill="none" stroke="#E2E4EB" stroke-width="24"/>
+                    <circle cx="80" cy="80" r="60" fill="none" stroke="#E5E5E5" stroke-width="24"/>
                     <circle cx="80" cy="80" r="60" fill="none" stroke="var(--primary)" stroke-width="24"
                         stroke-dasharray="113.1 263.89" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
                     <circle cx="80" cy="80" r="60" fill="none" stroke="var(--accent)" stroke-width="24"
                         stroke-dasharray="82.94 294.05" stroke-dashoffset="-113.1" transform="rotate(-90 80 80)"/>
                     <circle cx="80" cy="80" r="60" fill="none" stroke="var(--blue)" stroke-width="24"
                         stroke-dasharray="67.86 309.13" stroke-dashoffset="-196.04" transform="rotate(-90 80 80)"/>
-                    <circle cx="80" cy="80" r="60" fill="none" stroke="#7C8299" stroke-width="24"
+                    <circle cx="80" cy="80" r="60" fill="none" stroke="#999999" stroke-width="24"
                         stroke-dasharray="113.1 263.89" stroke-dashoffset="-263.89" transform="rotate(-90 80 80)"/>
                     <text x="80" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="var(--primary)">1,247</text>
                     <text x="80" y="94" text-anchor="middle" font-size="10" fill="var(--text-muted)">Total</text>
@@ -471,7 +471,7 @@
                         <span class="legend-value">18%</span>
                     </div>
                     <div class="legend-item">
-                        <span class="legend-label"><span class="legend-dot" style="background:#7C8299"></span>Other</span>
+                        <span class="legend-label"><span class="legend-dot" style="background:#999999"></span>Other</span>
                         <span class="legend-value">30%</span>
                     </div>
                 </div>
