@@ -1040,17 +1040,26 @@ h3 {
 }
 
 .team-avatar {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto 24px;
     border-radius: 50%;
     overflow: hidden;
+    border: 3px solid var(--color-border-light);
 }
 
-.team-avatar svg {
+.team-avatar img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
+    filter: grayscale(30%) contrast(1.02);
+    transition: filter var(--transition);
+}
+
+.team-card:hover .team-avatar img {
+    filter: grayscale(0%) contrast(1);
 }
 
 .team-card h3 {
@@ -1685,8 +1694,8 @@ h3 {
     }
 
     .team-avatar {
-        width: 80px;
-        height: 80px;
+        width: 110px;
+        height: 110px;
         margin-bottom: 20px;
     }
 
@@ -1832,8 +1841,8 @@ h3 {
     }
 
     .team-avatar {
-        width: 72px;
-        height: 72px;
+        width: 100px;
+        height: 100px;
         margin-bottom: 16px;
     }
 
