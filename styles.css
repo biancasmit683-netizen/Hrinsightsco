@@ -1,7 +1,7 @@
 /* ========================================
-   The HR Insights Co. — Stylesheet v5
-   Minimal black & white aesthetic with
-   muted teal accent — quiet confidence
+   The HR Insights Co. — Stylesheet v6
+   Brand-aligned: From Noise to Clarity
+   Navy + Blue Grey + Teal + Orange (5%)
    ======================================== */
 
 /* --- Reset & Base --- */
@@ -14,29 +14,36 @@
 }
 
 :root {
-    /* Primary — near-black (authority, clarity) */
-    --color-primary: #111111;
-    --color-primary-light: #333333;
-    --color-primary-dark: #000000;
+    /* Primary — Deep Navy (authority, trust) */
+    --color-primary: #1F2A44;
+    --color-primary-light: #2A3A5C;
+    --color-primary-dark: #151D30;
 
-    /* Accent — muted teal (restrained, confident) */
-    --accent: #2F6F73;
-    --accent-light: #EAF4F4;
-    --accent-hover: #245A5D;
-    --accent-subtle: #B8D8D8;
+    /* Accent — Muted Teal (data layer, 15%) */
+    --accent: #4A7C7C;
+    --accent-light: #E8F0F0;
+    --accent-hover: #3D6868;
+    --accent-subtle: #B0CECE;
 
-    /* Neutrals — clean, minimal */
-    --color-text: #111111;
-    --color-text-secondary: #6B6B6B;
-    --color-text-muted: #999999;
+    /* Highlight — Orange (insight signal, 5% only) */
+    --color-highlight: #F25C1F;
+    --color-highlight-hover: #D94E15;
+
+    /* Structure — Blue Grey */
+    --color-structure: #5B6C84;
+
+    /* Neutrals — brand-aligned */
+    --color-text: #1F2A44;
+    --color-text-secondary: #5B6C84;
+    --color-text-muted: #8A96A8;
     --color-bg: #ffffff;
-    --color-bg-subtle: #F5F5F5;
-    --color-bg-warm: #F5F5F5;
-    --color-border: #E5E5E5;
-    --color-border-light: #EEEEEE;
+    --color-bg-subtle: #F4F6F8;
+    --color-bg-warm: #F4F6F8;
+    --color-border: #DFE3E8;
+    --color-border-light: #EBEEF2;
 
-    /* Fonts */
-    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    /* Fonts — Inter only per brand */
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     /* Layout */
@@ -46,11 +53,11 @@
     --radius: 4px;
     --radius-lg: 6px;
 
-    /* Shadows — subtle, neutral */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+    /* Shadows — navy-tinted */
+    --shadow-sm: 0 1px 3px rgba(31, 42, 68, 0.04), 0 1px 2px rgba(31, 42, 68, 0.06);
+    --shadow-md: 0 4px 16px rgba(31, 42, 68, 0.06), 0 1px 3px rgba(31, 42, 68, 0.04);
+    --shadow-lg: 0 12px 40px rgba(31, 42, 68, 0.08);
+    --shadow-card: 0 1px 3px rgba(31, 42, 68, 0.04);
 
     --transition: 0.25s ease;
 }
@@ -78,7 +85,7 @@ a {
 
 h1, h2 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-primary);
 }
 
@@ -119,13 +126,13 @@ h3 {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--color-structure);
     margin-bottom: 20px;
     text-align: center;
 }
 
 .eyebrow-light {
-    color: var(--accent);
+    color: var(--color-highlight);
 }
 
 /* --- Shared section intro --- */
@@ -170,14 +177,14 @@ h3 {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: var(--color-primary);
     color: #fff;
     box-shadow: none;
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 4px 12px rgba(47, 111, 115, 0.2);
+    background: var(--color-primary-light);
+    box-shadow: 0 4px 12px rgba(31, 42, 68, 0.2);
 }
 
 .btn-secondary {
@@ -221,14 +228,14 @@ h3 {
 }
 
 .btn-cta {
-    background: var(--accent);
+    background: var(--color-highlight);
     color: #fff;
     box-shadow: none;
 }
 
 .btn-cta:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 4px 12px rgba(47, 111, 115, 0.2);
+    background: var(--color-highlight-hover);
+    box-shadow: 0 4px 12px rgba(242, 92, 31, 0.25);
 }
 
 .btn-cta svg {
@@ -274,6 +281,20 @@ h3 {
 .logo-the {
     font-weight: 400;
     color: var(--color-text-muted);
+}
+
+.logo-insights {
+    position: relative;
+}
+
+.logo-dot {
+    position: absolute;
+    top: -2px;
+    left: 17px;
+    width: 5px;
+    height: 5px;
+    background: var(--color-highlight);
+    border-radius: 50%;
 }
 
 .nav-links {
@@ -351,7 +372,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23111111' fill-opacity='0.03'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F2A44' fill-opacity='0.03'%3E%3Ccircle cx='1' cy='1' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
 }
 
@@ -362,7 +383,7 @@ h3 {
     right: -5%;
     width: 500px;
     height: 300px;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 250 Q50 230 100 200 T200 150 T300 100 T400 60 T500 30' stroke='%232F6F73' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M0 280 Q50 260 100 240 T200 200 T300 170 T400 140 T500 120' stroke='%232F6F73' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/svg%3E") no-repeat;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 250 Q50 230 100 200 T200 150 T300 100 T400 60 T500 30' stroke='%234A7C7C' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M0 280 Q50 260 100 240 T200 200 T300 170 T400 140 T500 120' stroke='%234A7C7C' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/svg%3E") no-repeat;
     background-size: contain;
     pointer-events: none;
     opacity: 0.6;
@@ -382,8 +403,8 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.05);
-    opacity: 0.06;
+    filter: grayscale(80%) contrast(1.05);
+    opacity: 0.08;
 }
 
 .hero-container {
@@ -399,7 +420,7 @@ h3 {
 
 .hero .eyebrow {
     text-align: left;
-    color: var(--accent);
+    color: var(--color-structure);
 }
 
 .hero h1 {
@@ -527,7 +548,7 @@ h3 {
     font-family: var(--font-display);
     font-size: 36px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--color-primary);
     line-height: 1;
 }
 
@@ -600,7 +621,7 @@ h3 {
     font-family: var(--font-display);
     font-size: 28px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--color-primary);
     line-height: 1;
 }
 
@@ -858,7 +879,7 @@ h3 {
     display: flex;
     align-items: center;
     padding: 12px 16px;
-    background: #111111;
+    background: var(--color-primary);
     gap: 12px;
 }
 
@@ -930,7 +951,7 @@ h3 {
     width: 100%;
     height: 400px;
     object-fit: cover;
-    filter: grayscale(100%) contrast(1.05);
+    filter: grayscale(80%) contrast(1.05);
     display: block;
 }
 
@@ -941,7 +962,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='40' y='320' width='30' height='60' fill='%232F6F73' opacity='0.12'/%3E%3Crect x='80' y='280' width='30' height='100' fill='%232F6F73' opacity='0.1'/%3E%3Crect x='120' y='300' width='30' height='80' fill='%232F6F73' opacity='0.08'/%3E%3Crect x='160' y='260' width='30' height='120' fill='%232F6F73' opacity='0.12'/%3E%3Crect x='200' y='290' width='30' height='90' fill='%232F6F73' opacity='0.1'/%3E%3C/svg%3E") no-repeat bottom left;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='40' y='320' width='30' height='60' fill='%234A7C7C' opacity='0.12'/%3E%3Crect x='80' y='280' width='30' height='100' fill='%234A7C7C' opacity='0.1'/%3E%3Crect x='120' y='300' width='30' height='80' fill='%234A7C7C' opacity='0.08'/%3E%3Crect x='160' y='260' width='30' height='120' fill='%234A7C7C' opacity='0.12'/%3E%3Crect x='200' y='290' width='30' height='90' fill='%234A7C7C' opacity='0.1'/%3E%3C/svg%3E") no-repeat bottom left;
     background-size: 60%;
     pointer-events: none;
 }
@@ -965,7 +986,7 @@ h3 {
 .about-rule {
     width: 48px;
     height: 2px;
-    background: var(--accent);
+    background: var(--color-highlight);
     margin: 28px 0;
     border-radius: 1px;
 }
@@ -1046,14 +1067,23 @@ h3 {
 }
 
 /* ============================================
-   CONTACT / CTA SECTION — quiet authority
+   CONTACT / CTA SECTION — navy, commanding
    ============================================ */
 .contact {
     padding: 100px 0;
-    background: var(--color-bg-subtle);
+    background: var(--color-primary);
     position: relative;
     overflow: hidden;
-    border-top: 1px solid var(--color-border-light);
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
 
 .contact-content {
@@ -1066,13 +1096,13 @@ h3 {
 
 .contact-content h2 {
     font-size: 34px;
-    color: var(--color-primary);
+    color: #ffffff;
     margin-bottom: 16px;
     line-height: 1.25;
 }
 
 .contact-content p {
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.65);
     margin-bottom: 40px;
 }
 
@@ -1086,7 +1116,7 @@ h3 {
 .contact-note {
     font-size: 12.5px;
     font-weight: 500;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.4);
     letter-spacing: 0.3px;
 }
 
@@ -1095,9 +1125,9 @@ h3 {
    ============================================ */
 .quotes-banner {
     overflow: hidden;
-    background: #111111;
+    background: var(--color-primary);
     padding: 32px 0;
-    border-top: 1px solid #333333;
+    border-top: 2px solid var(--color-highlight);
 }
 
 .quotes-track {
@@ -1133,7 +1163,7 @@ h3 {
     font-family: var(--font-body);
     font-size: 12.5px;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--color-highlight);
     white-space: nowrap;
     letter-spacing: 0.3px;
 }
@@ -1315,7 +1345,7 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(31, 42, 68, 0.3);
     z-index: 999;
     opacity: 0;
     transition: opacity 0.3s ease;
