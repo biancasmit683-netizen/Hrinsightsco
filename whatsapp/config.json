@@ -8,12 +8,12 @@
 
   "website_url": "https://thehrinsightsco.co.za/",
   "website_label": "thehrinsightsco.co.za",
-  "general_email": "hello@hrinsightsco.com",
+  "general_email": "info@thehrinsightsco.co.za",
 
   "staff": [
-    { "name": "Bianca Janse van Vuuren", "role": "Technology and Data Lead",               "phone": "+27 00 000 0000", "email": "bianca@hrinsightsco.com" },
-    { "name": "Marizanne Koen",          "role": "Industrial Psychologist & HR Advisory",  "phone": "+27 00 000 0000", "email": "marizanne@hrinsightsco.com" },
-    { "name": "Liza Burger",             "role": "Human Resource Specialist",              "phone": "+27 00 000 0000", "email": "liza@hrinsightsco.com" }
+    { "name": "Bianca Janse van Vuuren", "role": "Technology and Data Lead",               "phone": "+27 00 000 0000", "email": "" },
+    { "name": "Marizanne Koen",          "role": "Industrial Psychologist & HR Advisory",  "phone": "+27 00 000 0000", "email": "" },
+    { "name": "Liza Burger",             "role": "Human Resource Specialist",              "phone": "+27 00 000 0000", "email": "" }
   ],
 
   "poster": {
