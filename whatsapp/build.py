@@ -3,6 +3,8 @@
 Reads whatsapp/config.json and writes to whatsapp/output/:
   - whatsapp-qr-poster-a4.pdf   print-ready A4 poster
   - whatsapp-qr-poster-a4.png   same poster as an image (300 dpi)
+  - whatsapp-qr-flyer-a5.pdf    same design at half size (A5) for flyers
+  - whatsapp-qr-flyers-2up-a4.pdf  two A5 flyers on one A4 sheet, with a cut line
   - whatsapp-qr.svg / .png      the QR code on its own
   - auto-reply.txt              greeting message to paste into WhatsApp Business
 
@@ -22,6 +24,25 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "output"
 
 NAVY = "#1F2A44"
+
+# A5 is A4 scaled by 148/210 on both sides.
+A5_SCALE = 148 / 210
+
+NO_MARGIN = {"top": "0", "right": "0", "bottom": "0", "left": "0"}
+
+# Shrinks the A4 poster onto A5 cells: one cell for the A5 flyer, two side by
+# side on landscape A4 (with a dashed cut line) for printing flyers in pairs.
+FLYER_HTML = """<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+    @page { size: %(width)s 210mm; margin: 0; }
+    * { margin: 0; padding: 0; }
+    body { width: %(width)s; height: 210mm; display: flex; position: relative; }
+    .cell { width: 148.5mm; height: 210mm; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    iframe { width: 210mm; height: 297mm; border: 0; flex: none; transform: scale(%(scale)s); }
+    .cut { position: absolute; top: 0; bottom: 0; left: 148.5mm; border-left: 0.3mm dashed #8A96A8; }
+</style></head><body>%(cells)s</body></html>
+"""
+FLYER_CELL = '<div class="cell"><iframe src="whatsapp-qr-poster-a4.html"></iframe></div>'
 
 
 def load_config():
@@ -107,8 +128,20 @@ def render_poster(html_path):
         page.goto(html_path.as_uri(), wait_until="networkidle")
         page.evaluate("document.fonts.ready")
         page.pdf(path=str(OUT / "whatsapp-qr-poster-a4.pdf"), format="A4", print_background=True,
-                 margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})
+                 margin=NO_MARGIN)
         page.screenshot(path=str(OUT / "whatsapp-qr-poster-a4.png"), full_page=False)
+
+        flyers = [
+            ("whatsapp-qr-flyer-a5", "148.5mm", FLYER_CELL),
+            ("whatsapp-qr-flyers-2up-a4", "297mm", FLYER_CELL * 2 + '<div class="cut"></div>'),
+        ]
+        for name, width, cells in flyers:
+            flyer = OUT / f"{name}.html"
+            flyer.write_text(FLYER_HTML % {"width": width, "scale": A5_SCALE, "cells": cells}, encoding="utf-8")
+            page.goto(flyer.as_uri(), wait_until="networkidle")
+            page.evaluate("document.fonts.ready")
+            page.pdf(path=str(OUT / f"{name}.pdf"), width=width, height="210mm",
+                     print_background=True, margin=NO_MARGIN)
         browser.close()
 
 

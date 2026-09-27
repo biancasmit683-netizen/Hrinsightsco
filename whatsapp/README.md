@@ -11,13 +11,21 @@ automatically with the team's contact details and the website link.
 | --- | --- |
 | `output/whatsapp-qr-poster-a4.pdf` | Print-ready A4 poster. Print at 100% / "Actual size". |
 | `output/whatsapp-qr-poster-a4.png` | Same poster as a 300 dpi image (for email, social, screens). |
+| `output/whatsapp-qr-flyer-a5.pdf` | Half-size (A5) flyer, for a print shop or A5 paper. |
+| `output/whatsapp-qr-flyers-2up-a4.pdf` | Two A5 flyers on one landscape A4 sheet. Print on A4 and cut along the dashed line. |
 | `output/whatsapp-qr.svg` / `.png` | The QR code on its own, for other material. |
 | `output/auto-reply.txt` | The auto-reply text to paste into WhatsApp Business. |
 | `config.json` | Number, pre-filled message, staff contacts, website, poster wording. |
 
-## 1. Print the poster
+## 1. Print the poster and flyers
 
-Open `output/whatsapp-qr-poster-a4.pdf` and print it on A4 at actual size.
+Print every PDF at 100% / "Actual size", never "Fit to page".
+
+- **Poster:** `output/whatsapp-qr-poster-a4.pdf` on A4.
+- **Flyers on an office printer:** `output/whatsapp-qr-flyers-2up-a4.pdf` on
+  A4 (landscape), then cut along the dashed line to get two A5 flyers.
+- **Flyers from a print shop:** send them `output/whatsapp-qr-flyer-a5.pdf`.
+
 Before printing a batch, scan a test print with an iPhone and an Android
 phone to confirm it opens the right chat.
 
