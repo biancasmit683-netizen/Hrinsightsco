@@ -1,0 +1,25 @@
+{
+  "_comment": "Edit these values, then run: python3 whatsapp/build.py",
+
+  "whatsapp_number": "27826709562",
+  "_whatsapp_number_help": "International format, digits only, no +, spaces or leading 0. e.g. 082 123 4567 -> 27821234567",
+
+  "prefilled_message": "Hi HR Insights Co., I would like to know more about your services.",
+
+  "website_url": "https://thehrinsightsco.co.za/",
+  "website_label": "thehrinsightsco.co.za",
+  "general_email": "info@thehrinsightsco.co.za",
+
+  "staff": [
+    { "name": "Bianca Janse van Vuuren", "role": "Technology and Data Lead",               "phone": "+27 00 000 0000", "email": "" },
+    { "name": "Marizanne Koen",          "role": "Industrial Psychologist & HR Advisory",  "phone": "+27 00 000 0000", "email": "" },
+    { "name": "Liza Burger",             "role": "Human Resource Specialist",              "phone": "+27 00 000 0000", "email": "" }
+  ],
+
+  "poster": {
+    "eyebrow": "HR Analytics & Workforce Intelligence",
+    "headline": "Let's talk",
+    "subtext": "Scan the code to chat with us on WhatsApp. We'll send you our team's contact details straight away.",
+    "cta": "Scan to chat on WhatsApp"
+  }
+}
