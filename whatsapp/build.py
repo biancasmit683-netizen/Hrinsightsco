@@ -5,6 +5,8 @@ Reads whatsapp/config.json and writes to whatsapp/output/:
   - whatsapp-qr-poster-a4.png   same poster as an image (300 dpi)
   - whatsapp-qr-flyer-a5.pdf    same design at half size (A5) for flyers
   - whatsapp-qr-flyers-2up-a4.pdf  two A5 flyers on one A4 sheet, with a cut line
+  - whatsapp-qr-tag-a6.pdf      A6 neck tag for a lanyard badge holder
+  - whatsapp-qr-tags-4up-a4.pdf four A6 tags on one A4 sheet, with cut lines
   - whatsapp-qr.svg / .png      the QR code on its own
   - auto-reply.txt              greeting message to paste into WhatsApp Business
 
@@ -43,6 +45,23 @@ FLYER_HTML = """<!DOCTYPE html>
 </style></head><body>%(cells)s</body></html>
 """
 FLYER_CELL = '<div class="cell"><iframe src="whatsapp-qr-poster-a4.html"></iframe></div>'
+
+# Four A6 tags on portrait A4 (2 x 2), with dashed cut lines between them.
+TAGS_4UP_HTML = """<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><style>
+    @page { size: 210mm 297mm; margin: 0; }
+    * { margin: 0; padding: 0; }
+    body { width: 210mm; height: 297mm; position: relative; display: grid;
+           grid-template-columns: 105mm 105mm; grid-template-rows: 148.5mm 148.5mm; }
+    iframe { width: 105mm; height: 148mm; border: 0; }
+    .cut-v { position: absolute; top: 0; bottom: 0; left: 105mm; border-left: 0.3mm dashed #8A96A8; }
+    .cut-h { position: absolute; left: 0; right: 0; top: 148.5mm; border-top: 0.3mm dashed #8A96A8; }
+</style></head><body>
+    <iframe src="whatsapp-qr-tag-a6.html"></iframe><iframe src="whatsapp-qr-tag-a6.html"></iframe>
+    <iframe src="whatsapp-qr-tag-a6.html"></iframe><iframe src="whatsapp-qr-tag-a6.html"></iframe>
+    <div class="cut-v"></div><div class="cut-h"></div>
+</body></html>
+"""
 
 
 def load_config():
@@ -95,11 +114,11 @@ def build_auto_reply(cfg):
     return text
 
 
-def build_poster_html(cfg, qr_svg):
+def fill_template(cfg, qr_svg, template_name, out_name):
     p = cfg["poster"]
     esc = html.escape
     headline = "<br>".join(esc(part) for part in p["headline"].split("\n"))
-    template = (HERE / "poster_template.html").read_text(encoding="utf-8")
+    template = (HERE / template_name).read_text(encoding="utf-8")
     replacements = {
         "{{EYEBROW}}": esc(p["eyebrow"]),
         "{{HEADLINE}}": headline,
@@ -112,12 +131,12 @@ def build_poster_html(cfg, qr_svg):
     }
     for key, value in replacements.items():
         template = template.replace(key, value)
-    path = OUT / "whatsapp-qr-poster-a4.html"
+    path = OUT / out_name
     path.write_text(template, encoding="utf-8")
     return path
 
 
-def render_poster(html_path):
+def render_poster(html_path, tag_path):
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as pw:
@@ -142,6 +161,18 @@ def render_poster(html_path):
             page.evaluate("document.fonts.ready")
             page.pdf(path=str(OUT / f"{name}.pdf"), width=width, height="210mm",
                      print_background=True, margin=NO_MARGIN)
+
+        page.goto(tag_path.as_uri(), wait_until="networkidle")
+        page.evaluate("document.fonts.ready")
+        page.pdf(path=str(OUT / "whatsapp-qr-tag-a6.pdf"), width="105mm", height="148mm",
+                 print_background=True, margin=NO_MARGIN)
+
+        tags = OUT / "whatsapp-qr-tags-4up-a4.html"
+        tags.write_text(TAGS_4UP_HTML, encoding="utf-8")
+        page.goto(tags.as_uri(), wait_until="networkidle")
+        page.evaluate("document.fonts.ready")
+        page.pdf(path=str(OUT / "whatsapp-qr-tags-4up-a4.pdf"), format="A4",
+                 print_background=True, margin=NO_MARGIN)
         browser.close()
 
 
@@ -151,8 +182,9 @@ def main():
     link = whatsapp_link(cfg)
     qr_svg = build_qr(link)
     build_auto_reply(cfg)
-    html_path = build_poster_html(cfg, qr_svg)
-    render_poster(html_path)
+    html_path = fill_template(cfg, qr_svg, "poster_template.html", "whatsapp-qr-poster-a4.html")
+    tag_path = fill_template(cfg, qr_svg, "badge_template.html", "whatsapp-qr-tag-a6.html")
+    render_poster(html_path, tag_path)
     print("WhatsApp link:", link)
     print("Written to:", OUT)
 

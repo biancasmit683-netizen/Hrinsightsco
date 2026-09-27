@@ -13,9 +13,11 @@ automatically with the team's contact details and the website link.
 | `output/whatsapp-qr-poster-a4.png` | Same poster as a 300 dpi image (for email, social, screens). |
 | `output/whatsapp-qr-flyer-a5.pdf` | Half-size (A5) flyer, for a print shop or A5 paper. |
 | `output/whatsapp-qr-flyers-2up-a4.pdf` | Two A5 flyers on one landscape A4 sheet. Print on A4 and cut along the dashed line. |
+| `output/whatsapp-qr-tag-a6.pdf` | A6 neck tag (105 x 148 mm) that fits a standard A6 lanyard badge holder. |
+| `output/whatsapp-qr-tags-4up-a4.pdf` | Four A6 tags on one A4 sheet. Print on A4 and cut along the dashed lines. |
 | `output/whatsapp-qr.svg` / `.png` | The QR code on its own, for other material. |
 | `output/auto-reply.txt` | The auto-reply text to paste into WhatsApp Business. |
-| `config.json` | Number, pre-filled message, staff contacts, website, poster wording. |
+| `config.json` | Number, pre-filled message, staff contacts, website, poster and tag wording. |
 
 ## 1. Print the poster and flyers
 
@@ -25,6 +27,10 @@ Print every PDF at 100% / "Actual size", never "Fit to page".
 - **Flyers on an office printer:** `output/whatsapp-qr-flyers-2up-a4.pdf` on
   A4 (landscape), then cut along the dashed line to get two A5 flyers.
 - **Flyers from a print shop:** send them `output/whatsapp-qr-flyer-a5.pdf`.
+- **Neck tags on an office printer:** `output/whatsapp-qr-tags-4up-a4.pdf` on
+  A4, then cut along the dashed lines to get four A6 tags. Slip each into an
+  A6 lanyard badge holder.
+- **Neck tags from a print shop:** send them `output/whatsapp-qr-tag-a6.pdf`.
 
 Before printing a batch, scan a test print with an iPhone and an Android
 phone to confirm it opens the right chat.
