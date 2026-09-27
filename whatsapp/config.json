@@ -6,8 +6,8 @@
 
   "prefilled_message": "Hi HR Insights Co., I would like to know more about your services.",
 
-  "website_url": "https://hrinsightsco.com",
-  "website_label": "hrinsightsco.com",
+  "website_url": "https://thehrinsightsco.co.za/",
+  "website_label": "thehrinsightsco.co.za",
   "general_email": "hello@hrinsightsco.com",
 
   "staff": [
@@ -18,7 +18,7 @@
 
   "poster": {
     "eyebrow": "HR Analytics & Workforce Intelligence",
-    "headline": "Let's talk about\nyour HR data",
+    "headline": "Let's talk",
     "subtext": "Scan the code to chat with us on WhatsApp. We'll send you our team's contact details straight away.",
     "cta": "Scan to chat on WhatsApp"
   }
